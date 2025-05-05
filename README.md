@@ -37,12 +37,32 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 /* write all the steps invloved */
 
 **PROGRAM**
+module deexp6(j, k, clk, rst, q);
+  input j, k, clk, rst;
+  output reg q;
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+  always @(posedge clk or posedge rst) begin
+    if (rst)
+      q <= 0;
+    else if (j == 0 && k == 0)
+      q <= q;
+    else if (j == 0 && k == 1)
+      q <= 0;
+    else if (j == 1 && k == 0)
+      q <= 1;
+    else if (j == 1 && k == 1)
+      q <= ~q;
+  end
+endmodule
+/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+Developed by:K.BHUVANESH
+RegisterNumber:212224230037
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![Screenshot 2025-05-05 141950](https://github.com/user-attachments/assets/a9082307-0c89-4d9a-87ab-457ce50140f9)
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![Screenshot 2025-05-05 142422](https://github.com/user-attachments/assets/596a8367-7212-44b7-a06d-9cb17e989439)
 
 **RESULTS**
